@@ -45,8 +45,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Checkout submodules
-        uses: textbook/git-checkout-submodule-action@master
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
