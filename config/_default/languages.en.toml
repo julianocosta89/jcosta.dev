@@ -1,0 +1,18 @@
+title = "jcosta.dev"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+
+[author]
+name = "Juliano Costa"
+image = "img/jcosta.jpg"
+headline = "Juliano Costa's personal page"
+links = [
+  { github = "https://github.com/julianocosta89" },
+  { linkedin = "https://www.linkedin.com/in/julianocosta89" },
+  { stack-overflow = "https://stackoverflow.com/users/9291851/juliano-costa" },
+  { x-twitter = "https://twitter.com/JCosta_89" }
+]
