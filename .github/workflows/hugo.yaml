@@ -45,9 +45,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Submodules
-        run: |
-          git submodule init && git submodule update
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
