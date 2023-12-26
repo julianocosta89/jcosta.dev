@@ -43,7 +43,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
+          fetch-depth: 0
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@master
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
