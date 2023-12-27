@@ -45,9 +45,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: BlowFish submodule
-        run: |
-          git submodule add -b main https://github.com/nunocoracao/blowfish.git themes/blowfish
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
