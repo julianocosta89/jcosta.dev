@@ -1,6 +1,6 @@
 # jcosta.dev
 
-This is my webpage, built using [Hugo][hugo] and [BlowFish][blowfish].
+This is my webpage, built using [Hugo][hugo] and [Blowfish][blowfish].
 
 Accessible at <https://jcosta.dev>
 
