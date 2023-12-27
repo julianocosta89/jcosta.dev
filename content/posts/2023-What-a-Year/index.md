@@ -69,7 +69,7 @@ If you watch it, I'd love to have any feedback from you.
 ![meetup-mic](img/meetup-mic.jpg "Picture taken by [Alexander Lackner](https://www.linkedin.com/in/alexander-lackner) kindly shared with me")
 
 The [Cloud Native Community Group][CNCG] is organized by
-[Jürgen Etzlstorfer][Jürgen-Etzlstorfer-Linkedin] and me, and
+[Jürgen Etzlstorfer][Jürgen-Etzlstorfer-Linkedin] and I, and
 everything has been done exclusively in our free time, till now.
 This year we have reached more than 500 members on our [Meetup][meetup] page and
 we ran 9 events throughout the year with an average of 35 attendees per event.
