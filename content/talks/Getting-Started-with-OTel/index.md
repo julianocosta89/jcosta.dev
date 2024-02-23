@@ -9,4 +9,6 @@ tags = [
 
 YouTube recording: [Getting Started with OpenTelemetry: OTel Demo to the Rescue](https://www.youtube.com/watch?v=iWpYD81ahmU)
 
-[Slide deck](https://github.com/julianocosta89/jcosta.dev/files/13773674/Getting-Started-with-OTel.pdf)
+Slide deck:
+
+{{< gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQez5-k_xQ-1oil28PKCk9rDdF88jEdtKo3wwDTVW7KR6k-CN9z3hPBjQl48dCF_4YXWiZMi_6c7DdH/embed" >}}
