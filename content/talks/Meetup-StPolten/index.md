@@ -91,7 +91,7 @@ Also, a big thank you to everyone who joined and engaged; the event was great be
 
 Slide deck:
 
-{{< gslides src="https://docs.google.com/presentation/d/e/2PACX-1vSBNi77QASgDWkBw5VM98t6feFp1phOlzBKtdrCGsdQHSW9hjVHgAvmuLMYO6SU2WW9tLqQbTztMT_7/embed" >}}
+{{< gslides src="https://docs.google.com/presentation/d/1bcMdC7Coz0gAeBxbByVrudyspqS9GL5e33Nv9MpMPTY/embed" >}}
 
 [st-polten-meetup]: https://www.meetup.com/cloud-native-austria/events/298751920/
 [cloudflight]: https://www.cloudflight.io/en/
