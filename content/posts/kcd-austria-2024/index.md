@@ -33,7 +33,7 @@ spot-on (as you can see in the photo below). I highly recommend checking out the
 
 Then, the dilemma started...
 
-With two tracks running simultaneously, we had to choose which talks to watch live, and which ones to miss. 😬
+With two tracks running simultaneously, we had to choose which talks to watch live, and which ones to watch later (whenever the recordinds are published). 😬
 
 I decided to attend [Cleo Winkler][]'s talk, where she shared her research on the evolution and current state of inclusion
 in IT, communities, and open source contributions. The biggest takeaway was the importance of simply “listening.” It’s a
