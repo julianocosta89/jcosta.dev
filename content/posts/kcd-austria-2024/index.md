@@ -1,6 +1,6 @@
 +++
 title = 'KCD Austria 2024'
-date = 2024-10-11
+date = 2024-10-14
 tags = [
     'wrapup',
     'Cloud Native',
@@ -11,7 +11,7 @@ tags = [
 
 KCD Austria 2024 was a blast!
 
-I'm on the train back home, trying to digest everything that happened over the past three days.
+I'm still trying to digest everything that happened last week.
 
 I should probably start by admitting I’m biased in reviewing this event since I was part of the organizing team this year.
 But hey, I’ll try to be as impartial as possible.
@@ -33,7 +33,8 @@ spot-on (as you can see in the photo below). I highly recommend checking out the
 
 Then, the dilemma started...
 
-With two tracks running simultaneously, we had to choose which talks to watch live, and which ones to watch later (whenever the recordinds are published). 😬
+With two tracks running simultaneously, we had to choose which talks to watch live, and which ones to watch later (whenever the
+recordings are published). 😬
 
 I decided to attend [Cleo Winkler][]'s talk, where she shared her research on the evolution and current state of inclusion
 in IT, communities, and open source contributions. The biggest takeaway was the importance of simply “listening.” It’s a
@@ -94,22 +95,22 @@ and I loved her shout-out to [Jakob][], part of the Cloud Native Linz community 
 [Linux / FOSS Meetup in Linz][]. It’s exciting to see new communities being created and people coming together to share and connect.
 
 The previous night at dinner, someone asked me about my t-shirt, which had this quote: _“Viver é partir, voltar e repartir -
-É tudo pra ontem”_. In English, it translates to _“To live is to leave, return, and share - It is all for yesterday”_.
+É tudo pra ontem”_. A direct translation to English would be: _“To live is to leave, return, and share - It is all for yesterday”_.
 
 This quote comes from a song called _"É tudo pra ontem"_ by Emicida and Gilberto Gil:
 
 {{< spotify src="https://open.spotify.com/embed/track/1FpjfHwVh1ziha91Ng2o4P?utm_source=generator&theme=0" >}}
 
-To me, this captures what community is all about—caring, sharing, and the urgency of both. Pia highlighted the reasons why people
+To me, this captures what community is all about-caring, sharing, and the urgency of both. Pia highlighted the reasons why people
 volunteer and organize within communities, and I’d like to add my own thoughts here:
 
 > For me, it’s about giving back. I learn, I use, I share. We learn, we use, we share. The cycle continues.
 >
-> As part of the Cloud Native Linz and KCD Austria organizing teams, my goal is to provide a safe space for people to share their
-stories, failures, and successes without judgment, and to feel welcome in our community.
+> As part of the Cloud Native Linz and KCD Austria organizing teams, my goal is to provide a safe and welcoming space for people to
+  share their stories, failures, and successes without judgment.
 >
-> I try to live by this philosophy, and I even have **UBUNTU** tattooed on my arm (not for the Linux distro), but for the meaning
-behind it. "I am because we are." For more, I recommend starting with the [Ubuntu philosophy][].
+> I try to live by this philosophy, and I even have **UBUNTU** tattooed on my arm (not for the Linux distro by Canonical), but for
+  its meaning. It is usually summarized as "I am because we are". For more, I recommend starting with the [Ubuntu philosophy][].
 
 I’ll have to write a separate post on the power of community, but for now, let’s return to KCD.
 
@@ -117,14 +118,14 @@ I’ll have to write a separate post on the power of community, but for now, let
 
 After Pia’s keynote, [Joan Miquel Luque Oliver][] and [David Hondl][] talked about observability as code. I was especially excited
 to see David, who previously presented at Cloud Native Linz. Their demo, showcasing Crossplane for configuring dashboards, alerts,
-and events, went smoothly. I also loved that my colleague [Tabitha Sable][] was referenced during their talk.
+events and notifications, went smoothly. I also loved that my colleague [Tabitha Sable][] was referenced during their talk.
 
 ![david-joan-kcd](img/david-joan-kcd.jpg
 "David and Joan - Observability as Code - DIY with Crossplane")
 
 Later, [José Correia][] and [Iveri Pragishvili][] shared how they implemented DORA metrics in a Kubernetes cluster with 15,000
 namespaces. Yes, you read that right, fifteen thousand namespaces. What I appreciated most was how they adapted the metrics to fit
-their needs when the standard definitions didn’t quite work.
+their needs when the standard definitions didn’t quite fit their needs.
 
 After lunch, my fellow CNCF Ambassador [Juraci Paixão Kröhling][] gave a keynote on my favorite topic: **Observability**. He walked
 us through the evolution of software development and why observability is critical today. He also tackled some tough audience
@@ -170,7 +171,7 @@ and feedback later this month (October 2024), but for now, I want to extend my h
 Thank you all for making this event so much fun, even when we were exhausted by the end of day three.
 
 ![kcd-fun](img/kcd-fun.jpg
-"Daniel and I playing with the KCD's cube seats")
+"Daniel and I having some fun with the KCD's cube seats")
 
 See you all next year, or maybe sooner at another community event!
 
