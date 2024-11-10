@@ -1,7 +1,7 @@
 theme = 'blowfish'
 baseURL = "https://jcosta.dev/"
 languageCode = "en"
-paginate = 10
+pagination.pagerSize = 10
 
 [imaging]
   anchor = 'Center'

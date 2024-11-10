@@ -27,6 +27,7 @@ highlightCurrentMenuArea = true
   showRecentItems = 3
   showMoreLink = true
   showMoreLinkDest = "/posts"
+  mainSections = ["posts", "talks"]
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true
