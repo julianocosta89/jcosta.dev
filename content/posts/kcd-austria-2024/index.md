@@ -28,7 +28,7 @@ Although he’s not from the Kubernetes/Cloud Native world, his talk on "failing
 their journey in allowing customers to securely run JavaScript code directly on the backend. The timing and tech jokes were
 spot-on (as you can see in the photo below). I highly recommend checking out the recordings when they’re available.
 
-![stefan-kcd](img/stefan-kcd.jpg
+![stefan-kcd](img/kcd-2024/stefan-kcd.jpg
 "Stefan Baumgartner keynote KCD Austria 2024 - Failing Successfully")
 
 Then, the dilemma started...
@@ -40,7 +40,7 @@ I decided to attend [Cleo Winkler][]'s talk, where she shared her research on th
 in IT, communities, and open source contributions. The biggest takeaway was the importance of simply “listening.” It’s a
 must-see for every community builder worldwide. I hope to see this talk again at KubeCon.
 
-![cleo-kcd](img/cleo-kcd.jpg
+![cleo-kcd](img/kcd-2024/cleo-kcd.jpg
 "Cleo Winkler - Cultivating Inclusion: Enhancing Diversity for a Stronger Kubernetes Community")
 
 Next, I caught [Dominik Suß][]’s talk about why observability solutions need agents. He presented various deployment patterns
@@ -51,26 +51,26 @@ After lunch, I attended the talk by [Josef Taha][], [Tobias Grantner][], and [Lu
 project. Even though I’m not a security expert, I really enjoyed how they presented real-life threat exploits in a honey cluster.
 It was fascinating stuff.
 
-![tobias-lucas-josef-kcd](img/tobias-lucas-josef-kcd.jpg
+![tobias-lucas-josef-kcd](img/kcd-2024/tobias-lucas-josef-kcd.jpg
 "Tobias, Lukas and Josef - Kubernetes Storm Center: Open Source Threat Intelligence for Cloud Native")
 
 Later, my fellow Datadog Tech Advocate, [Rory McCune][], shared key strategies for securing Kubernetes cluster management.
 Though security isn't my specialty, Rory’s clear, well-structured points were very easy to follow.
 
-![rory-kcd](img/rory-kcd.jpg
+![rory-kcd](img/kcd-2024/rory-kcd.jpg
 "Rory McCune - Fortifying Kubernetes - Strategies for Secure Cluster Management")
 
 Unfortunately, I only caught the end of [Jose Javier Alonso Maya][] and [Fabrice Pipart][], who discussed the concept of
 "Everything as Code." They covered everything from infrastructure as code to documentation and even slides as code.
 Fun fact: I’m writing this blog post as code, so maybe they can include "blogging as code" in a future iteration of their talk. 🤭
 
-![fabrice-jose-kcd](img/fabrice-jose-kcd.jpg
+![fabrice-jose-kcd](img/kcd-2024/fabrice-jose-kcd.jpg
 "Fabrice and Jose - Everything as Code: A Dozen As-Code Concepts beyond Infrastructure or Configuration as Code")
 
 The day wrapped up with a closing keynote by [Lian Li][], who shared how her journey into art helped her realize that it’s all
 about people and community. Even in IT, driven by data, it ultimately comes down to people.
 
-![lian-kcd](img/lian-kcd.jpg
+![lian-kcd](img/kcd-2024/lian-kcd.jpg
 "Lian Li - In a Land Before Metrics: Embracing the Art of Uncertainty")
 
 In the evening, we had the chance to connect and network with attendees, fellow organizers, and speakers at the event party.
@@ -80,7 +80,7 @@ and starting a conversation.
 One of the best parts was that these conversations ranged from highly technical topics, like the OpenTelemetry Collector distros,
 to funny moments like discussing the fancy toilet in my hotel room. Seriously, it had all kinds of functions:
 
-![toilet](img/toilet.jpg
+![toilet](img/kcd-2024/toilet.jpg
 "Fancy Toilet")
 
 But don’t ask me how the conversation got there. 🙈 Hahaha
@@ -120,7 +120,7 @@ After Pia’s keynote, [Joan Miquel Luque Oliver][] and [David Hondl][] talked a
 to see David, who previously presented at Cloud Native Linz. Their demo, showcasing Crossplane for configuring dashboards, alerts,
 events and notifications, went smoothly. I also loved that my colleague [Tabitha Sable][] was referenced during their talk.
 
-![david-joan-kcd](img/david-joan-kcd.jpg
+![david-joan-kcd](img/kcd-2024/david-joan-kcd.jpg
 "David and Joan - Observability as Code - DIY with Crossplane")
 
 Later, [José Correia][] and [Iveri Pragishvili][] shared how they implemented DORA metrics in a Kubernetes cluster with 15,000
@@ -135,12 +135,12 @@ questions, such as:
 
 I loved his response, he uses both. Monitoring helps track known issues, while observability helps investigate unknown unknowns.
 
-![juraci-kcd](img/juraci-kcd.jpg
+![juraci-kcd](img/kcd-2024/juraci-kcd.jpg
 "Juraci Paixão Kröhling - The Role of Observability in Cloud Native Environments")
 
 One personal highlight: As an OpenTelemetry Demo maintainer, I was thrilled to see a trace from the OTel Demo in Juraci’s presentation. 🤩
 
-![otel-demo-kcd](img/otel-demo-kcd.jpg
+![otel-demo-kcd](img/kcd-2024/otel-demo-kcd.jpg
 "OpenTelemetry Demo")
 
 The last talk I caught was from [Oleg Nenashev][], who gave an in-depth overview of observability in the Java stack. He covered
@@ -150,7 +150,7 @@ recording to absorb all the details.
 And I couldn’t resist mentioning [Dotan Horovits][], another CNCF Ambassador, who made his presence felt through Oleg’s talk, even
 though he wasn’t there in person.
 
-![oleg-kcd](img/oleg-kcd.jpg
+![oleg-kcd](img/kcd-2024/oleg-kcd.jpg
 "Oleg Nenashev - Modern Java app CI/CD observability with OTel, Quarkus and Gradle")
 
 ## Wrap-up
@@ -170,7 +170,7 @@ and feedback later this month (October 2024), but for now, I want to extend my h
 
 Thank you all for making this event so much fun, even when we were exhausted by the end of day three.
 
-![kcd-fun](img/kcd-fun.jpg
+![kcd-fun](img/kcd-2024/kcd-fun.jpg
 "Daniel and I having some fun with the KCD's cube seats")
 
 See you all next year, or maybe sooner at another community event!
