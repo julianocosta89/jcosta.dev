@@ -55,7 +55,7 @@ Note that you can only use the components previously added to the manifest file,
 those components. If you try to use a component that is not defined in the manifest the Collector will fail to start.
 {{< /alert >}}
 
-In the PR, I also added a `TELEMETRY_BACKEND` build arg, which would get different manifest files depending on
+In the PR, I also added a `TELEMETRY_BACKEND` build arg, which would use a different manifest file depending on
 which observability backend the user wanted to send data to. The Datadog manifest had the Datadog components,
 but the default had only the `OTLP` and vendor agnostic components.
 
@@ -75,7 +75,7 @@ We don't import everything automatically, we define what we want, what we need, 
 
 ## The Collector Configuration
 
-After the PR from the Mastodon team got merged, [Renaud Chaput] and [Tim Campbell] started
+After the PR from the Mastodon team got merged, [Renaud Chaput][] and [Tim Campbell][] started
 sending OpenTelemery traces to Datadog via Collector.
 
 In here it started a great back and forth between them and I that I'll be forever grateful.
@@ -114,7 +114,7 @@ but I have never used it myself.
 
 Mastodon wanted some help to get a better naming to their spans, other than the default Ruby instrumentation name.
 
-They would like to have the values from `code.namespace` be merged with `code.function`. If you don't know
+They would like to have the values from `code.namespace` merged with `code.function`. If you don't know
 what a code namespace and function are, as I didn't, let me show you an example.
 
 A namespace would be something like `Api::V1::Timelines::PublicController` and the function `show`.
@@ -181,12 +181,12 @@ processors:
 ```
 
 Another point to highlight about tail sampling is that if you calculate metrics from spans
-with components such as the [spanmetricsconnector] or [datadogconnector], you have to make sure
+with components such as the [spanmetricsconnector][] or [datadogconnector][], you have to make sure
 the metrics are being calculated before the sampling.
 
 Let me elaborate a bit on that.
 
-Imagine your service emits 100 traces and you have a tail sampling configure to 25%.
+Imagine your service emits 100 traces and you have a tail sampling configured to 25%.
 That means that your Collector will receive 100 traces, but it will send to the observability backend
 approximately 25 traces.
 
