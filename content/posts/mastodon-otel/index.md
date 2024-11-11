@@ -6,96 +6,94 @@ tags = [
 ]
 +++
 
-I joined Datadog in January this year (2024), and in February, [Ara Pulido][], a colleague of mine, connected me with [Mastodon][]
-to help onboard their backend to Datadog.
+I joined Datadog in January 2024, and in February, my colleague [Ara Pulido] connected me with [Mastodon] to help
+onboard their backend to Datadog.
 
-They were using Datadog as part of the Open Source Program Datadog offers to Open Source projects for an year already, mainly
-to monitor their hosts, kubernetes cluster, logs and database performance, but they were looking into OpenTelemetry to get some
-visibility into their backend.
+Mastodon had been using Datadog for a year through Datadog's Open Source Program, primarily to monitor their hosts,
+Kubernetes cluster, logs, and database performance. However, they were exploring OpenTelemetry to get vendor agnostic
+instrumentation into their backend.
 
-I wrote about it on [Datadog's Open Source Hub][], but I wanted to add some personal/technical points to this process that
-didn't fit the Open Source Hub post, so here it goes.
+I wrote about this on [Datadog's Open Source Hub], but I wanted to share some personal and technical insights that
+didn't quite fit in that post—so here we go.
 
 ## Initial Challenges
 
-When I started looking at the [source code][], I noticed that Mastodon is written in Ruby. Although, I've touched Ruby in
-my previous work, it is totally different creating a sample Ruby app, from a real world application, but thankfully it worked
-out fine.
+When I started examining the [source code], I discovered that Mastodon is written in Ruby. Although I had previously
+worked with Ruby, creating a sample Ruby app is quite different from working on a real-world application.
+Fortunately, it worked out well.
 
-The community had already started working on something similar. [Robb Kidd][] sent a [pull request][] back in November
-2022 to add OTel to Mastodon, and I've built on top of that a solution [shipping the OTel Collector with it][julianos-pr].
+The community had already begun developing something similar. In November 2022, [Robb Kidd] submitted a [pull request]
+to add OpenTelemetry (OTel) to Mastodon, and I built a solution on top of that by [integrating the OTel Collector][julianos-pr].
 
 ## The PR with the Collector
 
-Even though this wasn't the PR that got merged, I'd like to spend a minute here to discuss one nice thing that I suggested.
+Even though this wasn't the pull request that ultimately got merged, I'd like to take a moment to discuss a suggestion I made.
 
 ### The Collector
 
-As Mastodon wanted to allow users to send telemetry data to any observability backend, I wanted to build a minimal collector,
-containing just the components required for each vendor, and each developer would configure their Collector in their own way.
+Since Mastodon wanted to enable users to send telemetry data to any observability backend, I aimed to allow developers to
+configure their own Collector as needed, but creating a minimal custom Collector containing only the required components for
+each use-case.
 
-To do that, I've used a multi-staged Dockerfile which first would use the OCB (OpenTelemetry Collector Builder) to build a
-minimal Collector distro based on a manifest file that specifies which components should be part of the Collector distro. And
-then runs the Collector with its configuration file.
+To achieve this, I used a multi-stage Dockerfile. First, it uses the OpenTelemetry Collector Builder (OCB) to create a
+minimal Collector distribution based on a manifest file specifying which components should be included.
+It then runs the Collector with its configuration file.
 
-Here is how a `manifest.yaml` file looks like:
+Here's an example of what a `manifest.yaml` file looks like:
 
 {{% snippet manifest.yaml yaml %}}
 
-This is how the `Dockerfile` would look like:
+Below is an example of the `Dockerfile`:
 
 {{% snippet Dockerfile Dockerfile %}}
 
-And finally, here is how the `otelcol-config.yaml` file would look like:
-
-{{% snippet otelcol-config.yaml yaml %}}
+And finally, here's an example of the `otelcol-config.yaml` file:
 
 {{< alert >}}
-Note that you can only use the components previously added to the manifest file, as the custom Collector has only
-those components. If you try to use a component that is not defined in the manifest the Collector will fail to start.
+Note that you can only use the components previously added to the manifest file, as the custom Collector includes only
+those components. If you try to use a component not defined in the manifest, the Collector will fail to start.
 {{< /alert >}}
 
-In the PR, I also added a `TELEMETRY_BACKEND` build arg, which would use a different manifest file depending on
-which observability backend the user wanted to send data to. The Datadog manifest had the Datadog components,
-but the default had only the `OTLP` and vendor agnostic components.
+In the pull request, I also added a `TELEMETRY_BACKEND` build argument, which selects a different manifest file depending
+on the observability backend the user wants to send data to. For example, the Datadog manifest includes the
+Datadog-specific components, while the default manifest includes only the `OTLP` and vendor-agnostic components.
 
-It was built to allow users to collaborate and add their manifests with their required components later on.
+This setup was designed to allow users to contribute their own manifests with additional components as needed.
 
-If you want to know more about the OCB, you can take a look at the official OpenTelemetry docs: [Building a custom collector][].
+To learn more about the OCB, refer to the official OpenTelemetry documentation: [Building a custom collector].
 
 ### The Instrumentation
 
-The main difference between the initial PR from Robb and mine in the instrumentation side, was that instead of using the
-`opentelemetry-instrumentation-all`, I suggested adding only the dependencies we need.
+The main difference between Robb's initial PR and mine, on the instrumentation side, was that instead of using
+`opentelemetry-instrumentation-all`, I suggested adding only the specific dependencies we needed.
 
-This is way more verbose and requires more maintenance, but we have more control over what we are instrumenting. This also
-aligned with the idea behind building a minimal Collector distro.
+This approach is more verbose and requires additional maintenance, but it gives us greater control over what we're
+instrumenting. It also aligns with the goal of building a minimal Collector distribution.
 
-We don't import everything automatically, we define what we want, what we need, and only use those.
+Rather than importing everything automatically, we define exactly what we want, use only what we need, and keep the
+setup streamlined.
 
 ## The Collector Configuration
 
-After the PR from the Mastodon team got merged, [Renaud Chaput][] and [Tim Campbell][] started
-sending OpenTelemery traces to Datadog via Collector.
+After the Mastodon team's PR was merged, they began sending OpenTelemetry traces to Datadog via the Collector.
 
-In here it started a great back and forth between them and I that I'll be forever grateful.
+This sparked an invaluable back-and-forth exchange between [Renaud Chaput], [Tim Campbell], and me, for which I'll be
+forever grateful.
 
-I represent the community/users/customers inside Datadog, and hearing exactly what are their pain
-points and troubles when sending OTel data to Datadog is one of the most important part of my job.
+As a representative of the community, users, and customers within Datadog, understanding their pain points and challenges
+with sending OTel data to Datadog is one of the most important aspects of my role.
 
-In the [Datadog's Open Source Hub] blog post I've spent some time talking about [Inferred Services]
-and how that improved Mastodon's usability significantly.
-
-In here, I want to focus on some Collector configuration that helped them navigate better the
-OTel world in Datadog.
+In the [Datadog Open Source Hub][Datadog's Open Source Hub] blog post, I discussed how [Inferred Services] significantly
+improved Mastodon's usability. Here, I want to focus on specific Collector configurations that helped them navigate the
+OTel ecosystem within Datadog more effectively.
 
 ### Resource Processor
 
-In the snippet below, the [resourceprocessor] component is used to set an attribute
+In the snippet below, the [resourceprocessor] component is used to set an attribute:
 `deployment.environment.name=development`.
 
-When the OTel data arrives at Datadog with that attribute, the service is tagged with the
-defined value, and that makes their life easier when navigating the data in Datadog.
+When OTel data arrives in Datadog with this attribute, the service is tagged accordingly, making it easier for the team
+to navigate and analyze their data in Datadog.
 
 ```yaml
 processors:
@@ -109,17 +107,17 @@ processors:
 
 ### Transform Processor
 
-Working with the [transformprocessor] was a great learning to me. I knew the existence of the component,
-but I have never used it myself.
+Working with the [transformprocessor] was a valuable learning experience for me. Although I was aware of the component,
+I had never used it myself.
 
-Mastodon wanted some help to get a better naming to their spans, other than the default Ruby instrumentation name.
+Mastodon wanted assistance in improving the naming of their spans beyond the default Ruby instrumentation name.
 
-They would like to have the values from `code.namespace` merged with `code.function`. If you don't know
-what a code namespace and function are, as I didn't, let me show you an example.
+They would like the values from `code.namespace` and `code.function` combined. If you're unfamiliar with these terms,
+as I initially was, here's an example:
 
-A namespace would be something like `Api::V1::Timelines::PublicController` and the function `show`.
+A namespace might look like `Api::V1::Timelines::PublicController`, while the function could be `show`.
 
-The snippet below concatenates those two values with a `#` in between, resulting in this:
+The snippet below demonstrates how these two values are concatenated with a `#` in between, resulting in
 `Api::V1::Timelines::PublicController#show`.
 
 ```yaml
@@ -136,30 +134,29 @@ processors:
 ```
 
 {{< alert >}}
-Note that we are actually not changing the span name, but rather setting the resource name.
-This is a Datadog concept that we do not need to explore here, but if you are interested, you can
-take a look at the [Resources glossary](https://docs.datadoghq.com/tracing/glossary/#resources).
+
+Note that we are not actually changing the span name but rather setting the resource name.
+This is a Datadog-specific concept that we won't explore here, but if you're interested, you can
+learn more in the [Resources glossary](https://docs.datadoghq.com/tracing/glossary/#resources).
 {{< /alert >}}
 
 ### Tail Sampling Processor
 
-I remember as if it was today the [presentation from Reese Lee] about [Tail-Based Sampling] at KubeCon
-EU 2022. It was my first contact with the concept and I was pretty impressive by its power. Reese also
-nailed the presentation with some live hands-on.
+I vividly remember [Reese Lee's presentation] on [Tail-Based Sampling] at KubeCon EU 2022. It was my first
+introduction to the concept, and I was truly impressed by its potential.
+Reese delivered a fantastic talk with a great hands-on demo.
 
-Another talk that I have to mention is from [Vijay and Aishwarya from eBay] in this year's (2024) Observability
-Day EU, where they blew my mind when said that they sample just 1% of their traces, as that percentage is
-enough for their traffic volume 🤯.
+Another noteworthy talk was from [Vijay and Aishwarya from eBay] at this year's (2024) Observability Day EU.
+They shared that they sample only 1% of their traces, which, due to their high traffic volume, is sufficient 🤯.
 
-Tail sampling has a catch when you use multiple Collectors, where you have to make sure all spans from
-a trace reaches the same Collector, otherwise you will have some broken traces.
+Tail sampling has a challenge when using multiple Collectors: you **must** ensure that all spans from a trace
+reach the same Collector, or else you'll end up with broken traces.
 
-In Mastodon's case though, I got lucky because they are using a single instance of the Collector, which
-made our life configuring it way easier.
+In Mastodon's case, I was fortunate—they're using a single Collector instance, which made configuring it much easier.
 
-Initially I've suggested 25% of sampling, plus all errors, but Tim was already satisfied with 10% plus errors.
+Initially, I suggested sampling 25% of traces, plus all errors, but Tim found that 10%, plus errors, met their needs.
 
-Below we have the `tail_sampling` processor definition for this.
+Below is the `tail_sampling` processor definition for this setup.
 
 ```yaml
 processors:
@@ -180,27 +177,24 @@ processors:
       ]
 ```
 
-Another point to highlight about tail sampling is that if you calculate metrics from spans
-with components such as the [spanmetricsconnector][] or [datadogconnector][], you have to make sure
-the metrics are being calculated before the sampling.
+Another important point about tail sampling is that if you're calculating metrics from spans using components like
+[spanmetricsconnector] or [datadogconnector], you need to ensure metrics are calculated before sampling.
 
-Let me elaborate a bit on that.
+Let me explain.
 
-Imagine your service emits 100 traces and you have a tail sampling configured to 25%.
-That means that your Collector will receive 100 traces, but it will send to the observability backend
-approximately 25 traces.
+Imagine your service emits 100 traces, and you have tail sampling configured at 25%. This means your Collector will
+receive all 100 traces but will send approximately 25 to the observability backend.
 
-If you calculate the metrics in the same pipeline you export the data, the metrics will be calculated
-with a quarter of its total, and you will miss a lot of information about your service.
+If metrics are calculated in the same pipeline where data is exported, they'll reflect only about a quarter of the
+total traces, resulting in significant information loss about your service.
 
-To solve this, you have to use three pipelines:
+To address this, you need to set up three pipelines:
 
-* The first one receives all spans from the traces and calculate the metrics of it;
-* The second one also receives all spans, but it samples the traces and exports only
-  the sampled traces to the backend;
-* The third one receives the calculated metrics and exports them.
+* The first pipeline receives all spans from the traces and calculates its metrics.
+* The second pipeline also receives all spans, but it samples the traces and exports only the sampled traces to the backend.
+* The third pipeline receives the calculated metrics and exports them.
 
-Here is an example of it:
+Here's an example setup:
 
 ```yaml
 service:
@@ -220,14 +214,13 @@ service:
 
 ## It Keeps Going
 
-That's a live collaboration which is still ongoing. At the moment I have a couple of opened discussions
-with the Mastodon's team and in every iteration I learn more and we reach a better observability state.
+This is a live, ongoing collaboration. Currently, I have a few open discussions with the Mastodon team, and with each
+iteration, I learn more, and we work together to achieve a better observability state.
 
-I hope that keeps going, because learning and growing is what motivates me.
+I hope this collaboration continues, as learning and growth are what truly motivate me.
 
-To wrap it up, I just want to take the chance to publicly thank Ara for this awesome onboarding gift.
-As well as Renaud and Tim for all the back and forth and everything that I learnt from their use-cases
-and questions.
+To wrap up, I'd like to take this opportunity to thank Ara for this amazing onboarding experience, as well as Renaud
+and Tim for all the back-and-forth discussions and the valuable insights I've gained from their use cases and questions.
 
 [Ara Pulido]: https://www.linkedin.com/in/arapulido/
 [Mastodon]: https://joinmastodon.org/
@@ -242,7 +235,7 @@ and questions.
 [Inferred Services]: https://opensource.datadoghq.com/projects/mastodon/#inferred-services
 [resourceprocessor]: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/resourceprocessor/README.md
 [transformprocessor]: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/transformprocessor/README.md
-[presentation from Reese Lee]: https://www.youtube.com/watch?v=l4PeclHKl7I
+[Reese Lee's presentation]: https://www.youtube.com/watch?v=l4PeclHKl7I
 [Vijay and Aishwarya from eBay]: https://www.youtube.com/watch?v=RSJwv1jOdTg
 [Tail-Based Sampling]: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/tailsamplingprocessor/README.md
 [spanmetricsconnector]: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/spanmetricsconnector/README.md
