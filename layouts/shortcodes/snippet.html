@@ -1,0 +1,5 @@
+{{ $file := .Get 0 }}
+{{ $format := .Get 1 }} 
+{{ (printf "```%s" $format) }}
+{{ (printf "%s%s" .Page.File.Dir $file) | readFile | safeHTML }}
+{{ "```" }}
