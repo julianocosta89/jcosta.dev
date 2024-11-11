@@ -1,0 +1,67 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+        cors:
+          allowed_origins:
+            - 'http://*'
+            - 'https://*'
+
+processors:
+  batch:
+    send_batch_max_size: 1000
+    send_batch_size: 100
+    timeout: 10s
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 4000
+    spike_limit_mib: 800
+  resourcedetection:
+    detectors: [system]
+    system:
+      resource_attributes:
+        os.description:
+          enabled: true
+        host.arch:
+          enabled: true
+        host.cpu.vendor.id:
+          enabled: true
+        host.cpu.family:
+          enabled: true
+        host.cpu.model.id:
+          enabled: true
+        host.cpu.model.name:
+          enabled: true
+        host.cpu.stepping:
+          enabled: true
+        host.cpu.cache.l2.size:
+          enabled: true
+  resource:
+    attributes:
+      - key: deployment.environment.name
+        value: 'otel'
+        action: upsert
+
+exporters:
+  debug:
+    verbosity: detailed
+  otlp:
+    endpoint: <grpc_backend>:4317
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [batch, resourcedetection, resource, memory_limiter]
+      exporters: [debug, otlp]
+    traces:
+      receivers: [otlp]
+      processors: [batch, resourcedetection, resource, memory_limiter]
+      exporters: [debug, otlp]
+    logs:
+      receivers: [otlp]
+      processors: [batch, resourcedetection, resource, memory_limiter]
+      exporters: [debug, otlp]
