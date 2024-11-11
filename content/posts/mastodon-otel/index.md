@@ -2,7 +2,8 @@
 title = 'Mastodon & OpenTelemetry'
 date = 2024-11-11
 tags = [
-    'OpenTelemetry'
+    'OpenTelemetry',
+    'Mastodon'
 ]
 +++
 
