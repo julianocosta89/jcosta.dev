@@ -1,6 +1,6 @@
 +++
 title = 'Mastodon & OpenTelemetry'
-date = 2024-10-28
+date = 2024-11-11
 tags = [
     'OpenTelemetry'
 ]
