@@ -55,6 +55,12 @@ Note that you can only use the components previously added to the manifest file,
 those components. If you try to use a component that is not defined in the manifest the Collector will fail to start.
 {{< /alert >}}
 
+In the PR, I also added a `TELEMETRY_BACKEND` build arg, which would get different manifest files depending on
+which observability backend the user wanted to send data to. The Datadog manifest had the Datadog components,
+but the default had only the `OTLP` and vendor agnostic components.
+
+It was built to allow users to collaborate and add their manifests with their required components later on.
+
 If you want to know more about the OCB, you can take a look at the official OpenTelemetry docs: [Building a custom collector][].
 
 ### The Instrumentation
