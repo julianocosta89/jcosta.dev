@@ -49,7 +49,17 @@ highlightCurrentMenuArea = true
   relatedContentLimit = 3
   showTaxonomies = true
   showWordCount = true
-  sharingLinks = [ "linkedin", "twitter", "reddit", "facebook", "email", "whatsapp", "telegram"]
+  sharingLinks = [ 
+    "linkedin",
+    "mastodon",
+    "bluesky",
+    "twitter",
+    "reddit",
+    "facebook",
+    "email",
+    "whatsapp",
+    "telegram"
+  ]
 
 [list]
   showHero = true
