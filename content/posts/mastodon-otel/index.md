@@ -50,6 +50,8 @@ Below is an example of the `Dockerfile`:
 
 And finally, here's an example of the `otelcol-config.yaml` file:
 
+{{% snippet otelcol-config.yaml yaml %}}
+
 {{< alert >}}
 Note that you can only use the components previously added to the manifest file, as the custom Collector includes only
 those components. If you try to use a component not defined in the manifest, the Collector will fail to start.
