@@ -13,6 +13,7 @@ headline = "Juliano Costa's personal page"
 links = [
   { github = "https://github.com/julianocosta89" },
   { linkedin = "https://www.linkedin.com/in/julianocosta89" },
+  { mastodon = "https://mastodon.social/@julianocosta89" },
   { bluesky = "https://bsky.app/profile/jcosta.dev" },
   { stack-overflow = "https://stackoverflow.com/users/9291851/juliano-costa" }
 ]
