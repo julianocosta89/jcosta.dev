@@ -8,7 +8,7 @@ defaultBackgroundImage = "img/westerlund2.jpg"
 
 highlightCurrentMenuArea = true
 
-#homepage.showRecent = true
+fediCreator = "@julianocosta89@mastodon.social"
 
 [header]
   layout = "fixed"
