@@ -1,0 +1,9 @@
+{{ $recentArticles := 5 }}
+{{ $recentArticles = .Site.Params.homepage.showRecentItems }}
+
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.homepage.mainSections }}
+  {{ range first $recentArticles ($pages.ByDate.Reverse) }}
+  {{ partial "article-link/card.html" . }}
+  {{ end }}
+</section>
