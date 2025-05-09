@@ -1,3 +1,4 @@
 public/
+.cursor
 .DS_Store
 .hugo_build.lock
