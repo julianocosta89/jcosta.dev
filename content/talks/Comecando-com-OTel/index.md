@@ -3,7 +3,8 @@ title = 'Começando com OpenTelemetry: tudo o que você precisa saber'
 date = 2025-04-19
 tags = [
     'OpenTelemetry',
-    'Cloud Native Araraquara'
+    'Cloud Native Araraquara',
+    'Developer Advocate'
 ]
 +++
 
