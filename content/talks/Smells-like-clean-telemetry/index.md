@@ -1,14 +1,13 @@
 +++
 title = 'Smells like clean telemetry'
 date = 2025-09-10
-toc = false
 tags = [
     'OpenTelemetry',
     'Developer Advocate'
 ]
 +++
 
-## Smells like clean telemetry: Stop the noise, create better spans
+**Smells like clean telemetry: Stop the noise, create better spans**
 
 Slide deck:
 
