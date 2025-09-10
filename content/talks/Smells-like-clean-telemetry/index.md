@@ -1,6 +1,7 @@
 +++
 title = 'Smells like clean telemetry'
 date = 2025-09-10
+toc = false
 tags = [
     'OpenTelemetry',
     'Developer Advocate'
