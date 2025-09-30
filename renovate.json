@@ -3,6 +3,23 @@
   "extends": [
     "config:recommended"
   ],
+  "packageRules": [
+    {
+      "description": "Group all OCB components together",
+      "matchManagers": [
+        "ocb",
+        "custom.regex"
+      ],
+      "matchSourceUrls": [
+        "https://github.com/open-telemetry/opentelemetry-collector",
+        "https://github.com/open-telemetry/opentelemetry-collector-contrib"
+      ],
+      "matchPackageNames": [
+        "open-telemetry/opentelemetry-collector-releases"
+      ],
+      "groupName": "OpenTelemetry Collector Builder"
+    }
+  ],
   "ocb": {
     "enabled": true,
     "managerFilePatterns": [
@@ -25,5 +42,5 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^cmd/builder/v(?<version>.*)$"
     }
-  ],
+  ]
 }
