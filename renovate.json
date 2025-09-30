@@ -2,5 +2,28 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "ocb": {
+    "enabled": true,
+    "managerFilePatterns": [
+      "content/posts/mastodon-otel/manifest.yaml"
+    ],
+    "bumpVersion": "minor"
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update OpenTelemetry Collector Builder version in Dockerfile",
+      "managerFilePatterns": [
+        "/content/posts/mastodon-otel/Dockerfile/"
+      ],
+      "matchStrings": [
+        "ARG BUILDER_VERSION=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "cmd/builder",
+      "packageNameTemplate": "open-telemetry/opentelemetry-collector-releases",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^cmd/builder/v(?<version>.*)$"
+    }
+  ],
 }
