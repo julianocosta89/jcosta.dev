@@ -14,19 +14,12 @@
     },
     {
       "groupName": "Hugo",
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["gohugoio/hugo"]
-    }
-  ],
-  "regexManagers": [
-    {
-      "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
-      "matchStrings": [
-        "HUGO_VERSION:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      "matchDatasources": [
+        "github-releases"
       ],
-      "depNameTemplate": "gohugoio/hugo",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v?(?<version>.*)$"
+      "matchPackageNames": [
+        "gohugoio/hugo"
+      ]
     }
   ],
   "ocb": {
