@@ -5,12 +5,12 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "^go\\.opentelemetry\\.io/collector/",
-        "^github\\.com/open-telemetry/opentelemetry-collector-contrib/",
-        "open-telemetry/opentelemetry-collector-releases"
-      ],
-      "groupName": "OpenTelemetry Collector Builder"
+      "groupName": "OpenTelemetry Collector Builder",
+      "matchPackageNames": [
+        "/^go\\.opentelemetry\\.io/collector//",
+        "/^github\\.com/open-telemetry/opentelemetry-collector-contrib//",
+        "/open-telemetry/opentelemetry-collector-releases/"
+      ]
     }
   ],
   "ocb": {
