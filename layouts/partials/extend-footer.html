@@ -1,17 +1,18 @@
 {{/* Cookie Consent Banner */}}
-<div id="consent-banner" class="consent-banner">
+<div id="consent-banner" class="consent-banner" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-description" aria-modal="true">
   <div class="consent-banner-content">
     <div class="consent-banner-text">
-      <p>
+      <h2 id="consent-title" style="display: none;">Analytics Consent</h2>
+      <p id="consent-description">
         This website uses analytics to improve your experience and understand how you interact with our content.
         We respect your privacy and only collect anonymized data.
       </p>
     </div>
     <div class="consent-banner-buttons">
-      <button id="consent-accept" class="consent-banner-btn consent-banner-btn-accept">
+      <button id="consent-accept" class="consent-banner-btn consent-banner-btn-accept" aria-label="Accept analytics tracking">
         Accept
       </button>
-      <button id="consent-decline" class="consent-banner-btn consent-banner-btn-decline">
+      <button id="consent-decline" class="consent-banner-btn consent-banner-btn-decline" aria-label="Decline analytics tracking">
         Decline
       </button>
     </div>

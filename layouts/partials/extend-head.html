@@ -1,5 +1,6 @@
 {{/* Consent Banner Styles */}}
 <style>
+  /* Dark mode (default) */
   .consent-banner {
     position: fixed;
     bottom: 0;
@@ -11,11 +12,33 @@
     padding: 1.5rem;
     z-index: 9999;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: none;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
   }
 
   .consent-banner.show {
-    display: block;
+    transform: translateY(0);
+  }
+
+  /* Light mode - when dark class is NOT present on html */
+  html:not(.dark) .consent-banner {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f2937;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  html:not(.dark) .consent-banner-text a {
+    color: #2563eb;
+  }
+
+  html:not(.dark) .consent-banner-btn-decline {
+    color: #6b7280;
+    border-color: #d1d5db;
+  }
+
+  html:not(.dark) .consent-banner-btn-decline:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #1f2937;
   }
 
   .consent-banner-content {
@@ -96,17 +119,32 @@
   }
 </style>
 
-{{/* Datadog RUM - Loaded but not initialized yet */}}
-<script
-    src="https://www.datadoghq-browser-agent.com/eu1/v6/datadog-rum.js"
-    type="text/javascript">
-</script>
-
 {{/* Consent Management and Conditional Datadog RUM Initialization */}}
 <script>
   (function() {
     const CONSENT_KEY = 'jcosta-analytics-consent';
     const CONSENT_VERSION = '1';
+    const CONSENT_EXPIRY_MONTHS = 6;
+
+    // Function to load and initialize Datadog RUM
+    function loadDatadogRUM() {
+      // Check if script is already loaded
+      if (document.querySelector('script[src*="datadog-rum"]')) {
+        initDatadogRUM();
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = 'https://www.datadoghq-browser-agent.com/eu1/v6/datadog-rum.js';
+      script.type = 'text/javascript';
+      script.onload = function() {
+        initDatadogRUM();
+      };
+      script.onerror = function() {
+        console.error('Failed to load Datadog RUM script');
+      };
+      document.head.appendChild(script);
+    }
 
     // Function to initialize Datadog RUM
     function initDatadogRUM() {
@@ -122,19 +160,23 @@
           trackBfcacheViews: true,
           defaultPrivacyLevel: 'mask-user-input',
         });
-        console.log('Datadog RUM initialized');
       }
     }
 
-    // Check for existing consent
+    // Check for existing consent with expiry
     function getConsent() {
       try {
         const stored = localStorage.getItem(CONSENT_KEY);
         if (stored) {
           const data = JSON.parse(stored);
-          if (data.version === CONSENT_VERSION) {
+          const expiryDate = new Date();
+          expiryDate.setMonth(expiryDate.getMonth() - CONSENT_EXPIRY_MONTHS);
+
+          if (data.version === CONSENT_VERSION && new Date(data.timestamp) > expiryDate) {
             return data.consent;
           }
+          // Consent expired, remove it
+          localStorage.removeItem(CONSENT_KEY);
         }
       } catch (e) {
         console.error('Error reading consent:', e);
@@ -155,11 +197,22 @@
       }
     }
 
-    // Show consent banner
+    // Show consent banner with focus management
     function showBanner() {
       const banner = document.getElementById('consent-banner');
       if (banner) {
         banner.classList.add('show');
+
+        // Focus the accept button after animation completes
+        setTimeout(function() {
+          const acceptBtn = document.getElementById('consent-accept');
+          if (acceptBtn) {
+            acceptBtn.focus();
+          }
+        }, 300);
+
+        // Trap focus within the banner
+        trapFocus(banner);
       }
     }
 
@@ -171,13 +224,43 @@
       }
     }
 
+    // Trap focus within modal for accessibility
+    function trapFocus(element) {
+      const focusableElements = element.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      element.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) {
+              lastFocusable.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastFocusable) {
+              firstFocusable.focus();
+              e.preventDefault();
+            }
+          }
+        }
+
+        // Close on Escape key
+        if (e.key === 'Escape') {
+          handleConsent(false);
+        }
+      });
+    }
+
     // Handle user choice
     function handleConsent(accepted) {
       saveConsent(accepted);
       hideBanner();
 
       if (accepted) {
-        initDatadogRUM();
+        loadDatadogRUM();
       }
     }
 
@@ -186,7 +269,7 @@
       const consent = getConsent();
 
       if (consent === true) {
-        initDatadogRUM();
+        loadDatadogRUM();
       } else if (consent === null) {
         showBanner();
       }
