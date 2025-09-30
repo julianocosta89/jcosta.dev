@@ -1,4 +1,6 @@
 public/
+resources/
+CLAUDE.md
 .cursor
 .DS_Store
 .hugo_build.lock
