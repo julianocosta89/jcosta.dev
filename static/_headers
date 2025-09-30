@@ -8,7 +8,7 @@
 
   # Content Security Policy
   # Adjust as needed for your specific requirements
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.datadoghq-browser-agent.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://browser-intake-datadoghq.eu https://session-replay-datadoghq.eu; frame-src https://open.spotify.com https://docs.google.com; media-src 'self' https://open.spotify.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.datadoghq-browser-agent.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://browser-intake-datadoghq.eu https://session-replay-datadoghq.eu; frame-src https://open.spotify.com https://docs.google.com https://www.youtube.com https://app.netlify.com; media-src 'self' https://open.spotify.com;
 
   # Cache Control for static assets
   Cache-Control: public, max-age=31536000, immutable
