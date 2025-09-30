@@ -14,19 +14,9 @@
     },
     {
       "groupName": "Hugo",
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["gohugoio/hugo"]
-    }
-  ],
-  "regexManagers": [
-    {
-      "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
-      "matchStrings": [
-        "HUGO_VERSION:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "depNameTemplate": "gohugoio/hugo",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v?(?<version>.*)$"
+      "matchPackageNames": [
+        "gohugoio/hugo"
+      ]
     }
   ],
   "ocb": {
@@ -50,6 +40,19 @@
       "packageNameTemplate": "open-telemetry/opentelemetry-collector-releases",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^cmd/builder/v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
+      "description": "Update Hugo version in github workflow",
+      "managerFilePatterns": [
+        "/.github/workflows/hugo.yaml/"
+      ],
+      "matchStrings": [
+        "HUGO_VERSION: (?<currentValue>.*?)\\n"
+      ],
+      "packageNameTemplate": "gohugoio/hugo",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
