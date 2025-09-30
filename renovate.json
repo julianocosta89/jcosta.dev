@@ -11,6 +11,22 @@
         "/^github\\.com/open-telemetry/opentelemetry-collector-contrib//",
         "/open-telemetry/opentelemetry-collector-releases/"
       ]
+    },
+    {
+      "groupName": "Hugo",
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["gohugoio/hugo"]
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
+      "matchStrings": [
+        "HUGO_VERSION:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "gohugoio/hugo",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v?(?<version>.*)$"
     }
   ],
   "ocb": {

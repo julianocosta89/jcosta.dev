@@ -5,3 +5,8 @@ pagination.pagerSize = 10
 
 [imaging]
   anchor = 'Center'
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
