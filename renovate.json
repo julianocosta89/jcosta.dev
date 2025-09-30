@@ -5,16 +5,9 @@
   ],
   "packageRules": [
     {
-      "description": "Group all OCB components together",
-      "matchManagers": [
-        "ocb",
-        "regex"
-      ],
-      "matchSourceUrls": [
-        "https://github.com/open-telemetry/opentelemetry-collector",
-        "https://github.com/open-telemetry/opentelemetry-collector-contrib"
-      ],
-      "matchPackageNames": [
+      "matchPackagePatterns": [
+        "^go\\.opentelemetry\\.io/collector/",
+        "^github\\.com/open-telemetry/opentelemetry-collector-contrib/",
         "open-telemetry/opentelemetry-collector-releases"
       ],
       "groupName": "OpenTelemetry Collector Builder"
