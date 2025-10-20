@@ -43,12 +43,13 @@
     },
     {
       "customType": "regex",
-      "description": "Update Hugo version in github workflow",
+      "description": "Update Hugo version in github workflow and netlify config",
       "managerFilePatterns": [
-        "/.github/workflows/hugo.yaml/"
+        "/.github/workflows/hugo.yaml/",
+        "/netlify.toml/"
       ],
       "matchStrings": [
-        "HUGO_VERSION: (?<currentValue>.*?)\\n"
+        "HUGO_VERSION:? ?[=]? ?[\"']?(?<currentValue>.*?)[\"']?\\n"
       ],
       "packageNameTemplate": "gohugoio/hugo",
       "datasourceTemplate": "github-releases",
