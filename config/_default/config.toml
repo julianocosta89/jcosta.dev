@@ -3,6 +3,9 @@ baseURL = "https://jcosta.dev/"
 languageCode = "en"
 pagination.pagerSize = 10
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [imaging]
   anchor = 'Center'
 
