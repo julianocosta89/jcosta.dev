@@ -1,0 +1,15 @@
+[build]
+  command = "hugo --gc --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.151.2"
+
+[context.production]
+  command = "hugo --gc --minify --baseURL https://jcosta.dev/"
+
+[context.deploy-preview]
+  command = "hugo --gc --minify --baseURL $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+  command = "hugo --gc --minify --baseURL $DEPLOY_PRIME_URL"
