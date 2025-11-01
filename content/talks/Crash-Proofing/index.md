@@ -1,6 +1,6 @@
 +++
 title = 'Crash-Proofing Your OpenTelemetry Collector'
-date = 2025-10-03
+date = 2025-11-03
 tags = [
     'OpenTelemetry',
     'OpenTelemetry Collector',
