@@ -16,12 +16,12 @@ ENV GOARCH=$TARGETARCH
 ENV CGO_ENABLED=0
 RUN ocb --config ./manifest.yaml --output-path /build/_build
 
-FROM alpine:3.22 AS certs
+FROM alpine:3.23 AS certs
 RUN apk --update add ca-certificates
 
 # Final step runs the custom Collector binary
 # with its configuration file
-FROM alpine:3.22
+FROM alpine:3.23
 
 ARG USER_UID=10001
 USER ${USER_UID}
