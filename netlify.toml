@@ -3,7 +3,7 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.155.2"
+  HUGO_VERSION = "0.155.3"
 
 [context.production]
   command = "hugo --gc --minify --baseURL https://jcosta.dev/"
