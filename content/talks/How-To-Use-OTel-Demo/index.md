@@ -8,7 +8,9 @@ tags = [
 ]
 +++
 
-**How to Use the OpenTelemetry Demo and Why It Matters**
+YouTube recording: [How to Use the OpenTelemetry Demo and Why It Matters](https://www.youtube.com/watch?v=_OfBPCxt9To)
+
+{{< youtube _OfBPCxt9To >}}
 
 The slide deck is below, and you can also clone and run the OpenTelemetry Demo from [this repository][1].
 

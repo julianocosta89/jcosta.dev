@@ -8,7 +8,9 @@ tags = [
 ]
 +++
 
-**How manual OTel instrumentation saves more than just money**
+YouTube recording: [How manual OTel instrumentation saves more than just money](https://www.youtube.com/watch?v=13Lyvy48Y6A)
+
+{{< youtube 13Lyvy48Y6A >}}
 
 The slide deck is below, and you can also check the code containing all examples
 used to build the presentation on [this repository][1].
