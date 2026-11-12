@@ -72,3 +72,9 @@ fediCreator = "@julianocosta89@mastodon.social"
   groupByYear = true
   cardView = true
   cardViewScreenWidth = false
+
+[dash0]
+  # Dash0 Website Monitoring. The auth token is public in the page HTML,
+  # so scope it to Ingesting, a single dataset and the web events signal type.
+  endpoint = "https://ingress.eu-west-1.aws.dash0.com"
+  authToken = "auth_SARAMMPBOz6JcvsoJAujbsABt7YgKbFW"
