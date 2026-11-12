@@ -119,48 +119,69 @@
   }
 </style>
 
-{{/* Consent Management and Conditional Datadog RUM Initialization */}}
+{{/* Consent Management and Conditional Dash0 Website Monitoring Initialization */}}
 <script>
   (function() {
     const CONSENT_KEY = 'jcosta-analytics-consent';
     const CONSENT_VERSION = '1';
     const CONSENT_EXPIRY_MONTHS = 6;
+    const DASH0_SDK_BASE_URL = 'https://unpkg.com/@dash0/sdk-web@0.28.3/dist/';
+    const DASH0_ENDPOINT = {{ site.Params.dash0.endpoint }};
+    const DASH0_AUTH_TOKEN = {{ site.Params.dash0.authtoken }};
 
-    // Function to load and initialize Datadog RUM
-    function loadDatadogRUM() {
-      // Check if script is already loaded
-      if (document.querySelector('script[src*="datadog-rum"]')) {
-        initDatadogRUM();
-        return;
-      }
-
+    // Function to load a script from the Dash0 Web SDK distribution
+    function loadDash0Script(file, integrity) {
       const script = document.createElement('script');
-      script.src = 'https://www.datadoghq-browser-agent.com/eu1/v6/datadog-rum.js';
-      script.type = 'text/javascript';
-      script.onload = function() {
-        initDatadogRUM();
-      };
+      script.src = DASH0_SDK_BASE_URL + file;
+      script.integrity = integrity;
+      script.crossOrigin = 'anonymous';
+      script.defer = true;
       script.onerror = function() {
-        console.error('Failed to load Datadog RUM script');
+        console.error('Failed to load ' + file);
       };
       document.head.appendChild(script);
     }
 
-    // Function to initialize Datadog RUM
-    function initDatadogRUM() {
-      if (window.DD_RUM) {
-        window.DD_RUM.init({
-          clientToken: 'pubab09ff8a7fee0682485eec0e2f2034cc',
-          applicationId: 'b6d9da4a-109a-4a3d-b34c-9db935401a61',
-          site: 'datadoghq.eu',
-          service: 'jcosta.dev',
-          env: 'prod',
-          sessionSampleRate: 100,
-          sessionReplaySampleRate: 10,
-          trackBfcacheViews: true,
-          defaultPrivacyLevel: 'mask-user-input',
-        });
+    // Function to initialize and load Dash0 Website Monitoring
+    function loadDash0() {
+      // Skip when Dash0 is not configured
+      if (!DASH0_ENDPOINT || !DASH0_AUTH_TOKEN) {
+        return;
       }
+
+      // Check if SDK is already initialized
+      if (window.dash0) {
+        return;
+      }
+
+      // Queue API calls until the SDK script is loaded
+      (function (d, a, s, h, z, e, r, o) {
+        d[a] ||
+          ((z = d[a] =
+            function () {
+              h.push(arguments);
+            }),
+          (z._t = new Date()),
+          (z._v = 1),
+          (h = z._q = []));
+      })(window, 'dash0');
+
+      window.dash0('init', {
+        serviceName: 'jcosta.dev',
+        environment: 'prod',
+        endpoint: {
+          url: DASH0_ENDPOINT,
+          authToken: DASH0_AUTH_TOKEN,
+        },
+        sessionSamplingRate: 100,
+        sessionRecording: {
+          samplingRate: 10,
+          maskAllInputs: true,
+        },
+      });
+
+      loadDash0Script('dash0.iife.js', 'sha256-gz9sBRgQf978W2xkgHQVKYDzorxhrqN7NXfMnSosE6Y=');
+      loadDash0Script('dash0-session-recording.iife.js', 'sha256-V+gbH7R643HKpGclzK7V6P1ZMDOCx3DYSJb0jjbMAgI=');
     }
 
     // Check for existing consent with expiry
@@ -260,7 +281,7 @@
       hideBanner();
 
       if (accepted) {
-        loadDatadogRUM();
+        loadDash0();
       }
     }
 
@@ -269,7 +290,7 @@
       const consent = getConsent();
 
       if (consent === true) {
-        loadDatadogRUM();
+        loadDash0();
       } else if (consent === null) {
         showBanner();
       }
