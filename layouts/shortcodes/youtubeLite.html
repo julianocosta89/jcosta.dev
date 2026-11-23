@@ -1,0 +1,5 @@
+{{- /* Override of Blowfish's youtubeLite: upstream reads the label from "id", so the play button was announced as the video id. */ -}}
+{{- $id := .Get "id" | default "SgXhGb-7QbU" -}}
+{{- $label := .Get "label" | default "Play video" -}}
+{{- $params := .Get "params" -}}
+<lite-youtube videoid="{{ $id }}" playlabel="{{ $label }}" params="{{ $params }}"></lite-youtube>

@@ -11,7 +11,7 @@ tags = [
 
 The following recording is from [ContainerDays Conference 2025][1] - Hamburg:
 
-{{< youtube _h2hlD0ecvg >}}
+{{< youtubeLite id="_h2hlD0ecvg" label="Play: Smells Like Clean Telemetry" >}}
 
 The slide deck is below, and you can also check the code containing all examples
 used to build the presentation on [this repository][2].

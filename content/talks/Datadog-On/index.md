@@ -10,7 +10,7 @@ tags = [
 
 YouTube recording: [Datadog On OpenTelemetry](https://www.youtube.com/watch?v=M35d-sdqtuU)
 
-{{< youtube M35d-sdqtuU >}}
+{{< youtubeLite id="M35d-sdqtuU" label="Play: Datadog On OpenTelemetry" >}}
 
 OpenTelemetry (OTel) is an open source, vendor-neutral observability framework that supplies APIs, SDKs,
 and tools to instrument, generate, collect, and export telemetry data (metrics, logs, traces and

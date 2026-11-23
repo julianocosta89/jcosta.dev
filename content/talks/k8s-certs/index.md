@@ -19,7 +19,7 @@ the new CKS (expected to be released in November 2020). They would also like to 
 
 YouTube recording: [Kubernetes Certifications](https://www.youtube.com/watch?v=ouWVGtRyRkA&t=2591s)
 
-{{< youtube id=ouWVGtRyRkA start=2591 >}}
+{{< youtubeLite id="ouWVGtRyRkA" label="Play: Kubernetes certifications: How to prepare and get it done" params="start=2591" >}}
 
 Slide deck:
 

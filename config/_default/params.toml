@@ -2,7 +2,7 @@ defaultAppearance = "dark"
 enableSearch = true
 enableCodeCopy = true
 
-disableImageOptimization = true
+disableImageOptimization = false
 
 defaultBackgroundImage = "img/westerlund2.jpg"
 

@@ -9,7 +9,7 @@ tags = [
 
 YouTube recording: [Getting Started with OpenTelemetry: OTel Demo to the Rescue](https://www.youtube.com/watch?v=iWpYD81ahmU)
 
-{{< youtube iWpYD81ahmU >}}
+{{< youtubeLite id="iWpYD81ahmU" label="Play: Getting Started with OpenTelemetry: OTel Demo to the Rescue" >}}
 
 Slide deck:
 

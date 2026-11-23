@@ -9,7 +9,7 @@ tags = [
 
 YouTube recording: [Interview with Juliano Costa - OpenTelemetry Demo Maintainer](https://www.youtube.com/watch?v=vgBKuSMa5J0)
 
-{{< youtube vgBKuSMa5J0 >}}
+{{< youtubeLite id="vgBKuSMa5J0" label="Play: Interview with Juliano Costa - OpenTelemetry Demo Maintainer" >}}
 
 Tune in for an interview with OpenTelemetry Demo Maintainer Juliano Costa.
 

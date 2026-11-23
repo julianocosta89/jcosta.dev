@@ -12,7 +12,7 @@ tags = [
 
 The following recording is from [SRE Day Paris][1]:
 
-{{< youtube 64q0zQgLeno >}}
+{{< youtubeLite id="64q0zQgLeno" label="Play: Crash-Proofing Your OpenTelemetry Collector" >}}
 
 The slide deck is below, and you can also check the code containing all examples
 used to build the presentation on [this repository][2].

@@ -10,7 +10,7 @@ tags = [
 
 YouTube recording (Pt-Br 🇧🇷): [Começando com OpenTelemetry: tudo o que você precisa saber](https://www.youtube.com/watch?v=Tu-qZlOFB3c&t=4684s)
 
-{{< youtube id=Tu-qZlOFB3c start=4684 >}}
+{{< youtubeLite id="Tu-qZlOFB3c" label="Play: Começando com OpenTelemetry: tudo o que você precisa saber" params="start=4684" >}}
 
 Slide deck:
 
