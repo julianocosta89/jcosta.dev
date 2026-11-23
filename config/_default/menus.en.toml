@@ -8,3 +8,8 @@
   identifier = "talks"
   pageRef = "talks"
   weight = 20
+
+[[footer]]
+  name = "Privacy"
+  pageRef = "privacy"
+  weight = 10

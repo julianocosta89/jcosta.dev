@@ -1,6 +1,7 @@
 +++
 title = 'Crash-Proofing Your OpenTelemetry Collector'
 date = 2025-11-03
+description = "Making the OpenTelemetry Collector resilient, from SRE Day Paris 2025. Recording, slides and example code."
 tags = [
     'OpenTelemetry',
     'OpenTelemetry Collector',
@@ -12,7 +13,7 @@ tags = [
 
 The following recording is from [SRE Day Paris][1]:
 
-{{< youtube 64q0zQgLeno >}}
+{{< youtubeLite id="64q0zQgLeno" label="Play: Crash-Proofing Your OpenTelemetry Collector" >}}
 
 The slide deck is below, and you can also check the code containing all examples
 used to build the presentation on [this repository][2].

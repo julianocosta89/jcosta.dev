@@ -1,6 +1,6 @@
 theme = 'blowfish'
 baseURL = "https://jcosta.dev/"
-languageCode = "en"
+locale = "en"
 pagination.pagerSize = 10
 
 [outputs]

@@ -1,9 +1,11 @@
 +++
 title = 'Smells Like Clean Telemetry'
 date = 2025-09-10
+description = "Stop the noise and create better spans, from ContainerDays Conference 2025 in Hamburg. Recording, slides and example code."
 tags = [
     'OpenTelemetry',
-    'Developer Advocate'
+    'Developer Advocate',
+    'OpenTelemetry Instrumentation'
 ]
 +++
 
@@ -11,7 +13,7 @@ tags = [
 
 The following recording is from [ContainerDays Conference 2025][1] - Hamburg:
 
-{{< youtube _h2hlD0ecvg >}}
+{{< youtubeLite id="_h2hlD0ecvg" label="Play: Smells Like Clean Telemetry" >}}
 
 The slide deck is below, and you can also check the code containing all examples
 used to build the presentation on [this repository][2].

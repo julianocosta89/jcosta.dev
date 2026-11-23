@@ -1,6 +1,7 @@
 +++
 title = 'How to Use the OpenTelemetry Demo and Why It Matters'
 date = 2026-03-23
+description = "What the OpenTelemetry Demo is, how to use it and why it matters. Recording and slides."
 tags = [
     'OpenTelemetry',
     'OpenTelemetry Demo',
@@ -10,7 +11,7 @@ tags = [
 
 YouTube recording: [How to Use the OpenTelemetry Demo and Why It Matters](https://www.youtube.com/watch?v=_OfBPCxt9To)
 
-{{< youtube _OfBPCxt9To >}}
+{{< youtubeLite id="_OfBPCxt9To" label="Play: How to Use the OpenTelemetry Demo and Why It Matters" >}}
 
 The slide deck is below, and you can also clone and run the OpenTelemetry Demo from [this repository][1].
 

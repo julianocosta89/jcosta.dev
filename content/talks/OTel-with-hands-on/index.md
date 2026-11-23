@@ -1,6 +1,7 @@
 +++
 title = 'OpenTelemetry - With Hands-on Lab'
 date = 2025-01-23
+description = "OpenTelemetry basics plus a hands-on lab with the Aspire Dashboard, from the first Cloud Native Valencia meetup."
 tags = [
     'OpenTelemetry',
     'Cloud Native Valencia',

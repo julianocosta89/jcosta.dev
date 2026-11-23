@@ -1,6 +1,7 @@
 +++
 title = 'Datadog On OpenTelemetry'
 date = 2024-09-17
+description = "A Datadog On episode on OpenTelemetry profiling, the road to Collector 1.0 and running OTel at Datadog, with Felix Geisendörfer and Pablo Baeyens."
 tags = [
     'OpenTelemetry',
     'Datadog',
@@ -10,7 +11,7 @@ tags = [
 
 YouTube recording: [Datadog On OpenTelemetry](https://www.youtube.com/watch?v=M35d-sdqtuU)
 
-{{< youtube M35d-sdqtuU >}}
+{{< youtubeLite id="M35d-sdqtuU" label="Play: Datadog On OpenTelemetry" >}}
 
 OpenTelemetry (OTel) is an open source, vendor-neutral observability framework that supplies APIs, SDKs,
 and tools to instrument, generate, collect, and export telemetry data (metrics, logs, traces and

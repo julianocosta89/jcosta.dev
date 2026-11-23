@@ -1,8 +1,31 @@
-<div id="Container"
-     style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-    <iframe id="googleSlideIframe"
-            width="100%" height="100%"
-            src="{{ .Get "src" }}"
-    frameborder="0" allowfullscreen=""
-    style="position:absolute; top:0; left: 0"></iframe>
+{{- /*
+  Usage: {{< gslides src="https://docs.google.com/presentation/d/.../embed" title="..." >}}
+  Click-to-load: a Google Slides embed pulls ~10+ MB, so the iframe is only
+  created when the visitor asks for it. The link works without JavaScript.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $title := .Get "title" | default (printf "Slides: %s" .Page.Title) -}}
+<div class="gslides-embed not-prose relative w-full overflow-hidden rounded-md border-2 border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700" style="aspect-ratio:16/9">
+  <a href="{{ $src }}" target="_blank" rel="noopener"
+     class="gslides-load absolute inset-0 flex flex-col items-center justify-center gap-2 text-neutral-800 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400"
+     data-src="{{ $src }}" data-title="{{ $title }}">
+    <span class="text-4xl" aria-hidden="true">&#9654;&#xFE0E;</span>
+    <span class="font-semibold">View slides</span>
+  </a>
 </div>
+{{- if not (.Page.Store.Get "gslidesScript") }}
+{{- .Page.Store.Set "gslidesScript" true }}
+<script>
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('.gslides-load');
+    if (!link) return;
+    e.preventDefault();
+    var iframe = document.createElement('iframe');
+    iframe.src = link.dataset.src;
+    iframe.title = link.dataset.title;
+    iframe.allowFullscreen = true;
+    iframe.setAttribute('style', 'position:absolute;inset:0;width:100%;height:100%;border:0');
+    link.replaceWith(iframe);
+  });
+</script>
+{{- end }}
