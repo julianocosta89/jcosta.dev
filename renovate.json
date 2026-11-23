@@ -61,6 +61,18 @@
       "packageNameTemplate": "gohugoio/hugo",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
+      "description": "Update the self-hosted Dash0 Web SDK version",
+      "managerFilePatterns": [
+        "/config/_default/params.toml/"
+      ],
+      "matchStrings": [
+        "sdkVersion = \"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "@dash0/sdk-web",
+      "datasourceTemplate": "npm"
     }
   ],
   "git-submodules": {
