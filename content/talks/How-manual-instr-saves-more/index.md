@@ -4,7 +4,7 @@ date = 2026-03-25
 description = "Why manual OpenTelemetry instrumentation saves more than just money, with Yuri Oliveira. Recording, slides and example code."
 tags = [
     'OpenTelemetry',
-    'OpenTelemetry instrumentation',
+    'OpenTelemetry Instrumentation',
     'Developer Advocate'
 ]
 +++

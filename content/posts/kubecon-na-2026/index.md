@@ -9,7 +9,8 @@ tags = [
     'OpenTelemetry',
     'OpenFeature',
     'Sampling',
-    'Community'
+    'Community',
+    'Recap'
 ]
 +++
 

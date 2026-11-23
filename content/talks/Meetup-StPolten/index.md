@@ -5,7 +5,8 @@ description = "The first Cloud Native St. Pölten meetup: getting started with O
 tags = [
     'OpenTelemetry',
     'Cloud Native St. Pölten',
-    'Developer Advocate'
+    'Developer Advocate',
+    'OpenTelemetry Demo'
 ]
 +++
 

@@ -7,7 +7,8 @@ tags = [
     'KubeCon',
     'Cloud Native Araraquara',
     'Datadog Summit',
-    'Developer Advocate'
+    'Developer Advocate',
+    'Recap'
 ]
 +++
 

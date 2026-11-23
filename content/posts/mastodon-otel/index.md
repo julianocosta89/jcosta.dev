@@ -4,7 +4,9 @@ date = 2024-11-11
 description = "How Mastodon moved its backend to OpenTelemetry: a custom Collector build, instrumentation, and resource, transform and tail sampling processors."
 tags = [
     'OpenTelemetry',
-    'Mastodon'
+    'Mastodon',
+    'OpenTelemetry Collector',
+    'Sampling'
 ]
 +++
 

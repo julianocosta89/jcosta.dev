@@ -4,7 +4,8 @@ date = 2024-07-18
 description = "An introduction to OpenTelemetry using the OpenTelemetry Demo, from Tyk LEAP 2024. Recording and slides."
 tags = [
     'OpenTelemetry',
-    'Developer Advocate'
+    'Developer Advocate',
+    'OpenTelemetry Demo'
 ]
 +++
 

@@ -3,12 +3,13 @@ title = '2023 - What a Year!'
 date = 2023-12-26
 description = "A new baby, becoming a CNCF Ambassador, Cloud Native Linz, KCD Austria, the OpenTelemetry Demo and a career change: my 2023 in review."
 tags = [
-    'wrapup',
+    'Recap',
     'OpenTelemetry',
     'CNCF Ambassador',
     'Cloud Native Linz',
-    'KCD',
-    'Developer Advocate'
+    'KCD Austria',
+    'Developer Advocate',
+    'OpenTelemetry Demo'
 ]
 +++
 
