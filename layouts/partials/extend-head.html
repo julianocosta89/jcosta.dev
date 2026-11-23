@@ -1,3 +1,11 @@
+{{/*
+  Content Security Policy.
+  Production is served by GitHub Pages, which cannot set response headers,
+  so the policy is delivered as a meta tag. Note: frame-ancestors, report-uri
+  and sandbox are ignored in meta-delivered policies.
+*/}}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com/@dash0/sdk-web@0.28.3/dist/dash0.iife.js https://unpkg.com/@dash0/sdk-web@0.28.3/dist/dash0-session-recording.iife.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' {{ site.Params.dash0.endpoint }}; frame-src https://open.spotify.com https://docs.google.com https://www.youtube.com https://www.youtube-nocookie.com https://app.netlify.com; media-src 'self' https://open.spotify.com; worker-src 'self' blob:; base-uri 'self'; form-action 'self'; object-src 'none'">
+
 {{/* Consent Banner Styles */}}
 <style>
   /* Dark mode (default) */
