@@ -1,6 +1,7 @@
 +++
 title = '2023 - What a Year!'
 date = 2023-12-26
+description = "A new baby, becoming a CNCF Ambassador, Cloud Native Linz, KCD Austria, the OpenTelemetry Demo and a career change: my 2023 in review."
 tags = [
     'wrapup',
     'OpenTelemetry',
@@ -87,7 +88,7 @@ encourage them to go and share what they know.
 It was a great year for the Cloud Native Linz Community Group, and we already have
 our next 4 events lined up, which is an awesome way to start the year.
 
-## OpenTelemtry Demo
+## OpenTelemetry Demo
 
 The [OpenTelemtry Demo][OTel-demo] had its first PR opened in April 2022,
 so we have turned 1 year old. I've been part of the project from the beginning,

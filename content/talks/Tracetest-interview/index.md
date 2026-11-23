@@ -1,6 +1,7 @@
 +++
 title = 'Interview with Juliano Costa - OpenTelemetry Demo Maintainer'
 date = 2024-03-25
+description = "Tracetest's Adnan interviews me about how the OpenTelemetry Demo started and where it is going."
 tags = [
     'OpenTelemetry',
     'Developer Advocate'

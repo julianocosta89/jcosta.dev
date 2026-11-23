@@ -1,6 +1,7 @@
 +++
-title = 'Getting Started with OpenTelemetry: OTel Demo to the Rescue'
+title = 'Getting Started with OpenTelemetry: OTel Demo to the Rescue (Cloud Native St. Pölten)'
 date = 2024-02-22
+description = "The first Cloud Native St. Pölten meetup: getting started with OpenTelemetry and the audience questions on OTLP stability and adding business attributes."
 tags = [
     'OpenTelemetry',
     'Cloud Native St. Pölten',

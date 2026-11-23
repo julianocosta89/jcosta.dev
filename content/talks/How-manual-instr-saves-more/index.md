@@ -1,6 +1,7 @@
 +++
 title = 'How manual OTel instrumentation saves more than just money'
 date = 2026-03-25
+description = "Why manual OpenTelemetry instrumentation saves more than just money, with Yuri Oliveira. Recording, slides and example code."
 tags = [
     'OpenTelemetry',
     'OpenTelemetry instrumentation',

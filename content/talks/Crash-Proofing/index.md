@@ -1,6 +1,7 @@
 +++
 title = 'Crash-Proofing Your OpenTelemetry Collector'
 date = 2025-11-03
+description = "Making the OpenTelemetry Collector resilient, from SRE Day Paris 2025. Recording, slides and example code."
 tags = [
     'OpenTelemetry',
     'OpenTelemetry Collector',

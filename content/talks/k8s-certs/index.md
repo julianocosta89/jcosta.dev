@@ -1,6 +1,7 @@
 +++
 title = 'Kubernetes certifications: How to prepare and get it done'
 date = 2020-11-24
+description = "Tips for preparing for and passing the CKA, CKAD and CKS Kubernetes certifications, with Yuri Oliveira."
 tags = [
     'Kubernetes',
     'Cloud Native Linz'

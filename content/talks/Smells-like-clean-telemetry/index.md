@@ -1,6 +1,7 @@
 +++
 title = 'Smells Like Clean Telemetry'
 date = 2025-09-10
+description = "Stop the noise and create better spans, from ContainerDays Conference 2025 in Hamburg. Recording, slides and example code."
 tags = [
     'OpenTelemetry',
     'Developer Advocate'

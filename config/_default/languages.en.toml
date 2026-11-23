@@ -5,6 +5,7 @@ title = "jcosta.dev"
   isoCode = "en"
   rtl = false
   dateFormat = "2 January 2006"
+  description = "Juliano Costa writes about OpenTelemetry, observability and the cloud native community: blog posts, conference talks and event recaps."
 
 [params.author]
 name = "Juliano Costa"

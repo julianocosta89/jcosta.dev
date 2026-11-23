@@ -1,6 +1,7 @@
 +++
-title = 'Getting Started with OpenTelemetry: OTel Demo to the Rescue'
+title = 'Getting Started with OpenTelemetry: OTel Demo to the Rescue (Cloud Native Salzburg)'
 date = 2023-04-26
+description = "An introduction to OpenTelemetry using the OpenTelemetry Demo, from the Cloud Native Salzburg meetup in April 2023. Recording and slides."
 tags = [
     'OpenTelemetry',
     'Cloud Native Salzburg'

@@ -1,6 +1,7 @@
 +++
 title = 'April 2025'
 date = 2025-05-08
+description = "KubeCon EU in London, Cloud Native Araraquara and Datadog Summit São Paulo: a busy April 2025."
 tags = [
     'OpenTelemetry',
     'KubeCon',

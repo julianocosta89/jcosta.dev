@@ -1,6 +1,7 @@
 +++
 title = 'KCD Austria 2024'
 date = 2024-10-14
+description = "Two days of talks, hallway conversations and community at Kubernetes Community Days Austria 2024."
 tags = [
     'wrapup',
     'Cloud Native',

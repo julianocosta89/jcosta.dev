@@ -1,6 +1,7 @@
 +++
 title = 'Datadog On OpenTelemetry'
 date = 2024-09-17
+description = "A Datadog On episode on OpenTelemetry profiling, the road to Collector 1.0 and running OTel at Datadog, with Felix Geisendörfer and Pablo Baeyens."
 tags = [
     'OpenTelemetry',
     'Datadog',

@@ -1,6 +1,7 @@
 +++
 title = 'Começando com OpenTelemetry: tudo o que você precisa saber'
 date = 2025-04-19
+description = "Uma introdução ao OpenTelemetry no Cloud Native Araraquara (em português), com gravação e slides."
 tags = [
     'OpenTelemetry',
     'Cloud Native Araraquara',
