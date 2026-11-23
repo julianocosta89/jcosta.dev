@@ -1,18 +1,20 @@
-{{/* Cookie Consent Banner */}}
-<div id="consent-banner" class="consent-banner" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-description" aria-modal="true">
+{{/* Analytics consent banner. Non-blocking notice: no focus trap. */}}
+<div id="consent-banner" class="consent-banner" role="region" aria-labelledby="consent-title" hidden>
   <div class="consent-banner-content">
     <div class="consent-banner-text">
-      <h2 id="consent-title" style="display: none;">Analytics Consent</h2>
-      <p id="consent-description">
-        This website uses analytics to improve your experience and understand how you interact with our content.
-        We respect your privacy and only collect anonymized data.
+      <h2 id="consent-title" class="sr-only">Analytics consent</h2>
+      <p>
+        With your permission, this site uses Dash0 Website Monitoring to measure page views,
+        performance and errors, and records a small sample of visits with form inputs masked.
+        Nothing is collected if you decline.
+        <a href="{{ "privacy/" | relURL }}">Privacy details</a>
       </p>
     </div>
     <div class="consent-banner-buttons">
-      <button id="consent-accept" class="consent-banner-btn consent-banner-btn-accept" aria-label="Accept analytics tracking">
+      <button type="button" class="consent-banner-btn consent-banner-btn-accept" data-consent-action="accept">
         Accept
       </button>
-      <button id="consent-decline" class="consent-banner-btn consent-banner-btn-decline" aria-label="Decline analytics tracking">
+      <button type="button" class="consent-banner-btn consent-banner-btn-decline" data-consent-action="decline">
         Decline
       </button>
     </div>

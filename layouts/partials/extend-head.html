@@ -131,7 +131,7 @@
 <script>
   (function() {
     const CONSENT_KEY = 'jcosta-analytics-consent';
-    const CONSENT_VERSION = '1';
+    const CONSENT_VERSION = '2'; // bump whenever what is collected changes
     const CONSENT_EXPIRY_MONTHS = 6;
     const DASH0_SDK_BASE_URL = 'https://unpkg.com/@dash0/sdk-web@0.28.3/dist/';
     const DASH0_ENDPOINT = {{ site.Params.dash0.endpoint }};
@@ -226,22 +226,16 @@
       }
     }
 
-    // Show consent banner with focus management
+    // Show consent banner. It is a non-blocking notice, so it does not
+    // steal or trap focus; keyboard users reach it via Tab as usual.
     function showBanner() {
       const banner = document.getElementById('consent-banner');
       if (banner) {
-        banner.classList.add('show');
-
-        // Focus the accept button after animation completes
-        setTimeout(function() {
-          const acceptBtn = document.getElementById('consent-accept');
-          if (acceptBtn) {
-            acceptBtn.focus();
-          }
-        }, 300);
-
-        // Trap focus within the banner
-        trapFocus(banner);
+        banner.hidden = false;
+        // Let the browser paint before starting the slide-in transition
+        requestAnimationFrame(function() {
+          banner.classList.add('show');
+        });
       }
     }
 
@@ -250,46 +244,44 @@
       const banner = document.getElementById('consent-banner');
       if (banner) {
         banner.classList.remove('show');
+        // Remove it from the tab order / accessibility tree once it slid out
+        setTimeout(function() {
+          banner.hidden = true;
+        }, 300);
       }
     }
 
-    // Trap focus within modal for accessibility
-    function trapFocus(element) {
-      const focusableElements = element.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-      const firstFocusable = focusableElements[0];
-      const lastFocusable = focusableElements[focusableElements.length - 1];
-
-      element.addEventListener('keydown', function(e) {
-        if (e.key === 'Tab') {
-          if (e.shiftKey) {
-            if (document.activeElement === firstFocusable) {
-              lastFocusable.focus();
-              e.preventDefault();
-            }
-          } else {
-            if (document.activeElement === lastFocusable) {
-              firstFocusable.focus();
-              e.preventDefault();
-            }
-          }
-        }
-
-        // Close on Escape key
-        if (e.key === 'Escape') {
-          handleConsent(false);
-        }
+    // Reflect the current choice wherever the page shows it (privacy page)
+    function renderStatus() {
+      const consent = getConsent();
+      const text = consent === true ? 'You have allowed analytics on this site.'
+        : consent === false ? 'You have declined analytics on this site.'
+        : 'You have not made a choice yet.';
+      document.querySelectorAll('[data-consent-status]').forEach(function(el) {
+        el.textContent = text;
       });
     }
 
     // Handle user choice
     function handleConsent(accepted) {
+      const previous = getConsent();
       saveConsent(accepted);
       hideBanner();
+      renderStatus();
 
       if (accepted) {
         loadDash0();
+      } else if (previous === true) {
+        // Withdrawing consent: forget the Dash0 session identifiers and
+        // reload, since the SDK is already running on this page.
+        try {
+          localStorage.removeItem('d0_session');
+          sessionStorage.removeItem('d0_tab');
+          sessionStorage.removeItem('d0_rec_shown');
+        } catch (e) {
+          // Storage unavailable; nothing to clear
+        }
+        window.location.reload();
       }
     }
 
@@ -302,20 +294,30 @@
       } else if (consent === null) {
         showBanner();
       }
+      renderStatus();
 
-      // Attach event listeners
-      const acceptBtn = document.getElementById('consent-accept');
-      const declineBtn = document.getElementById('consent-decline');
-
-      if (acceptBtn) {
-        acceptBtn.addEventListener('click', function() {
+      // Any element with data-consent-action="accept|decline|reset" works:
+      // the banner buttons and the controls on the privacy page.
+      document.addEventListener('click', function(e) {
+        const target = e.target.closest('[data-consent-action]');
+        if (!target) {
+          return;
+        }
+        const action = target.getAttribute('data-consent-action');
+        if (action === 'accept') {
           handleConsent(true);
-        });
-      }
-
-      if (declineBtn) {
-        declineBtn.addEventListener('click', function() {
+        } else if (action === 'decline') {
           handleConsent(false);
+        }
+      });
+
+      // Escape dismisses the banner as "decline" while focus is inside it
+      const banner = document.getElementById('consent-banner');
+      if (banner) {
+        banner.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            handleConsent(false);
+          }
         });
       }
     });
