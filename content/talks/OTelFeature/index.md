@@ -24,3 +24,5 @@ We will demonstrate how OpenTelemetry semantic conventions can act as a standard
 Slide deck:
 
 {{< gslides src="https://docs.google.com/presentation/d/e/2PACX-1vTakjXEJNaAThzRYjtxw-pcc5Gt-_KHJvDmYPg7_rkTHdWJvbZ11S9KLx-EG5YUwCHpsLBwMil0ZFMV/embed" >}}
+
+[Github repo with examples](https://github.com/OTelFeature/poc)

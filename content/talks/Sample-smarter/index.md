@@ -1,6 +1,6 @@
 +++
 title = 'Sample Smarter, Not Harder (Or Not At All!)'
-date = 2026-10-05
+date = 2026-11-11
 description = "Sample Smarter, Not Harder (Or Not At All!)."
 tags = [
     'OpenTelemetry',
@@ -24,3 +24,5 @@ Join our talk to connect business outcomes to concrete instrumentation and confi
 Slide deck:
 
 {{< gslides src="https://docs.google.com/presentation/d/e/2PACX-1vQ9vqQx9iNnEdxBMbmxYFe9VolvLhJlzblFlVt_i4IL5cSeADjK7-El9Ef1j76j-3qYO1PqxGOTsZLj/embed" >}}
+
+[Github repo with examples](https://github.com/julianocosta89/kubecon-na-2026)

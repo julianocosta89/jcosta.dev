@@ -6,13 +6,13 @@ description: "Two talks, an OpenTelemetry Community Award and a red suit: my Kub
 tags: ["KubeCon", "OpenTelemetry", "OpenFeature", "Sampling", "Community"]
 ---
 
-I came back from KubeCon Salt Lake City last week. Well, actually not last week: I got sick and stayed in bed for a week... Anyway, let's focus on the cool stuff. I want to talk about the community, and a couple of things that happened there that I'd like to share.
+I came back from KubeCon Salt Lake City last week. Well, actually not last week: I got sick and stayed in bed for a week, but... Anyways, let's focus on the cool stuff. I want to talk about the community, and a couple of things that happened there that I'd like to share.
 
 ## Sharing the stage with the person who taught me sampling
 
-This time I got two talks accepted. The first one was [Sample Smarter, Not Harder (Or Not At All!)](https://sessionize.com/s/julianocosta89/sample-smarter-not-harder-or-not-at-all/190682), together with Reese Lee.
+This time I got two talks accepted. The first one was [Sample Smarter, Not Harder (Or Not At All!)](../../talks/Sample-smarter/index.md), together with Reese Lee.
 
-This talk was really important to me. I actually learned sampling from Reese's talk at KubeCon Valencia (2022), around four years ago. So being on stage with her, talking about something I learned from her, was pretty great.
+This talk was really important to me. I actually learned sampling from Reese's talk at KubeCon Valencia (2022). So being on stage with her, talking about something I learned from her, was pretty great.
 
 We went through a few different ways of reducing telemetry:
 
@@ -27,13 +27,17 @@ At the end we didn't get many questions, I think only two on the mic. But after 
 
 {{< figure src="img/kubecon-na-2026/after-talk.JPG" alt="Chatting with folks in front of the stage after the talk" caption="Chatting with folks after the talk" >}}
 
+You can take a look at the slides, recording and repo in here if you would like: [Sample Smarter, Not Harder (Or Not At All!)](../../talks/Sample-smarter/index.md)
+
 ## Flipping switches on telemetry
 
-My second talk was [OpenFeature as a Control Plane for OpenTelemetry](https://sessionize.com/s/julianocosta89/openfeature-as-a-control-plane-for-opentelemetry/190683), with Simon Schrottner. Simon is a maintainer on the OpenFeature side.
+My second talk was [OpenFeature as a Control Plane for OpenTelemetry](../../talks/OTelFeature/index.md), with Simon Schrottner. Simon is a maintainer on the OpenFeature side.
 
 I usually give talks about OpenTelemetry, so sharing the stage with Simon, someone super knowledgeable on OpenFeature, was cool. I call this one kind of disruptive, because it changes the way we touch things in OpenTelemetry.
 
 Usually, if you want to change the telemetry your app produces, you change some configuration and restart the application, or change the Collector configuration and restart the Collector. To deliver our talk, we hooked OpenTelemetry up with feature flags, so we could just flip switches in OpenFeature, and see different behaviors in the backend. No restarts. No redeploys. I really enjoyed this one.
+
+You can take a look at the slides, recording and repo in here if you would like: [OpenFeature as a Control Plane for OpenTelemetry](../../talks/OTelFeature/index.md)
 
 ## An OpenTelemetry Community Award
 
@@ -61,9 +65,11 @@ At this KubeCon I met Leonardo Comelli, a former colleague from my time at HP, w
 
 He was one of the people responsible for sharing knowledge internally. This was around ten years ago, and he was already talking about containers and even Kubernetes. He was super into tech, and he still is. I saw him as an example and learned a lot from what he shared.
 
-He also drove an initiative so people could share what they were learning. Through it, I did a presentation with a friend on Java 8, the latest stable Java release at the time. He organized the sessions, scheduled the meetings and even took us to small conferences.
+He also drove some initiatives internally to incentivize people to share what they were learning. Through it, I did a presentation with a friend on Java 8, the latest stable Java release at the time. Leo's team organized the sessions, scheduled the meetings and even took us to small conferences.
 
-If you think about it, it's funny how things get aligned. I went from making sure prod was working, to a product specialist role teaching customers how to use the product, then to a software engineer position actually developing stuff. Then I got back into sharing knowledge as a developer advocate, and today this is what I do for a living. I think it's all connected to what started back then, so Leonardo has been really important in this journey.
+It's funny how things get aligned. In my first job, my role was making sure prod was working. When I left Brazil, back in 2017 I didn't know what would be the future, but it seems I got back to sharing knowledge.
+
+I like to think that it's all connected to what started back then, so Leonardo has been really important in this journey and meeting him at KubeCon, where I was giving talks was gratifying.
 
 {{< figure src="img/kubecon-na-2026/me-leo-addo.JPG" alt="With Leonardo and Addo at KubeCon" caption="With Leonardo and Addo at KubeCon" >}}
 
