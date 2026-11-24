@@ -80,4 +80,4 @@ fediCreator = "@julianocosta89@mastodon.social"
   endpoint = "https://ingress.eu-west-1.aws.dash0.com"
   authToken = "auth_SARAMMPBOz6JcvsoJAujbsABt7YgKbFW"
   # @dash0/sdk-web version, downloaded and self-hosted at build time (updated by Renovate)
-  sdkVersion = "0.28.3"
+  sdkVersion = "0.36.0"
